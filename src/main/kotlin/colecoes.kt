@@ -28,4 +28,6 @@ fun main(){
     }
     println("Imprimindo com forEach")
     listaInteiros3.forEach { x: Int ->  println("elemento: $x") }
+    println("Imprimindo com forEach 2")
+    listaInteiros3.forEach { println("elemento: $it") }
 }
