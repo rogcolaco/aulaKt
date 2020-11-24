@@ -26,4 +26,6 @@ fun main(){
     for (i in 0 until listaInteiros3.size){
         println(listaInteiros3[i])
     }
+    println("Imprimindo com forEach")
+    listaInteiros3.forEach { x: Int ->  println("elemento: $x") }
 }
