@@ -17,4 +17,8 @@ fun main(){
         println("Try - Catch")
     }
 
+    if(sobrenome != null){
+        println(sobrenome.capitalize());
+    }
+
 }
