@@ -21,7 +21,17 @@ fun List<String>.paraCadaString(funcao: (String) -> String): List<String> {
     return returnList
 }
 
+fun <T> List<T>.paraCada(funcao: (T) -> T): List<T>{
+    val returnList: MutableList<T> = mutableListOf()
+    this.forEach { returnList.add(funcao(it)) }
+    return returnList
+}
+
 fun primeiraLetra(s: String): String = s.first().toString()
+
+fun incrementa(i: Int) =  i+1
+
+fun dobra(f: Float) =  2 * f
 
 fun main(){
 
@@ -41,4 +51,18 @@ fun main(){
 
     //utilização do lambda para criar a funçao passada como parametro
     familia.paraCadaString { s ->  s.last().toString() }.forEach({println(it)})
+
+    //funções genéricas
+    familia.paraCada(::primeiraLetra).forEach { println(it)}
+
+    val listaInteiros: List<Int> = (1..10).toList()
+    val listaInc: List<Int> = listaInteiros.paraCada(::incrementa)
+    listaInc.forEach { println(it) }
+
+
+    val listaFloats: List<Float> = listOf(1f, 2f, 2.5f, 3f)
+    val listaDob: List<Float> = listaFloats.paraCada(::dobra)
+    listaDob.forEach { println(it) }
+
+
 }
